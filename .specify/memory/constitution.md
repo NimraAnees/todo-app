@@ -1,55 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+Version change: N/A (initial version) → 1.0.0 (new constitution)
+Added sections: All sections (this is the initial constitution)
+Removed sections: None
+Modified principles: N/A (new principles created)
+Templates requiring updates:
+  - ✅ plan-template.md: Constitution Check section will align with new principles
+  - ✅ spec-template.md: No specific constitution references to update
+  - ✅ tasks-template.md: No specific constitution references to update
+  - ✅ adr-template.md: No specific constitution references to update
+  - ✅ checklist-template.md: No specific constitution references to update
+  - ✅ phr-template.md: No specific constitution references to update
+  - ✅ agent-file-template.md: No specific constitution references to update
+Follow-up TODOs: None
+-->
+
+# Todo Application — In-Memory Console First Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Phase-First Focus
+Solve only the current phase's problem completely before moving to the next phase. Each phase must be fully functional and stable before considering evolution to subsequent phases.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Simplicity
+Prefer clear, minimal designs over complex abstractions. Solutions must be understandable and maintainable, avoiding unnecessary complexity that could impede future phases.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Determinism
+Application behavior must be predictable and repeatable. All operations must produce consistent results given the same inputs and initial state, ensuring reliable operation across all phases.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Separation of Concerns
+Business logic must remain independent of interface and infrastructure layers. This ensures clean architecture that supports evolution through web, AI, Kubernetes, and cloud-native phases.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Evolvability
+Early decisions must not block later phases. Design choices must preserve architectural flexibility to enable seamless transitions from in-memory console app to full-stack web application, AI chatbot, and cloud deployment.
 
-### [PRINCIPLE_6_NAME]
+### In-Memory Constraint (Phase I)
+All data storage must remain in-memory only with no file I/O, database usage, or persistence mechanisms. This ensures the foundational phase remains simple and portable while establishing the architectural foundation for future phases.
 
+## Phase I Constraints
+- Must run entirely in memory; no file I/O or database usage
+- No async, concurrency, or threading unless strictly required
+- No web frameworks, APIs, or AI integrations in Phase I
+- No configuration or environment setup required
+- Secrets and credentials must not exist in code
+- No external libraries except standard Python libraries
+- Must be self-contained and runnable on any standard Python 3.x environment
 
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Code Standards
+- Plain Python only; no unnecessary frameworks
+- Readable, maintainable structure
+- Avoid global mutable state where possible
+- Single responsibility for functions and classes
+- Business logic must be testable independently of the console UI
+- Clear command-driven or menu-based user interaction
+- Explicit success and error feedback for every action
+- Graceful handling of invalid input
+- No network calls or external services in Phase I
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution governs all development decisions for the Todo Application project. All implementation must comply with these principles across all phases. Changes to these principles require explicit approval and documented justification. The constitution serves as the authoritative source for architectural decisions and constraints.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All code must maintain compatibility with future phases while meeting current phase requirements. Breaking changes to core principles require architectural review and approval. The constitution will be updated incrementally as the project evolves through its planned phases.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-01 | **Last Amended**: 2026-01-01
