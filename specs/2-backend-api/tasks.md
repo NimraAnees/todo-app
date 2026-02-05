@@ -10,20 +10,20 @@
 
 ## Phase 2: Foundational (Blocking Prerequisites)
 
-- [ ] T003 Create Task database model in `backend/app/models/task.py`
-- [ ] T004 Create database migration for tasks table in `backend/migrations/002_create_tasks_table.sql`
+- [X] T003 Create Task database model in `backend/app/models/task.py`
+- [X] T004 Create database migration for tasks table in `backend/migrations/002_create_tasks_table.sql`
 - [ ] T005 Run migration `002_create_tasks_table.sql` against Neon PostgreSQL
-- [ ] T006 [P] Define Task Pydantic schemas in `backend/app/schemas/task.py`
-- [ ] T007 [P] Create empty tasks router in `backend/app/routers/tasks.py`
-- [ ] T008 Register tasks router in `backend/app/main.py`
+- [X] T006 [P] Define Task Pydantic schemas in `backend/app/schemas/task.py`
+- [X] T007 [P] Create empty tasks router in `backend/app/routers/tasks.py`
+- [X] T008 Register tasks router in `backend/app/main.py`
 
 ## Phase 3: User Story 1 - Create Task (Priority: P1) 🎯 MVP
 
 **Goal**: Authenticated user can create a new task.
 **Independent Test**: Use curl to POST to `/api/v1/tasks` with valid JWT and verify 201 Created.
 
-- [ ] T009 [US1] Implement POST `/api/v1/tasks` endpoint in `backend/app/routers/tasks.py`
-- [ ] T010 [US1] Ensure task is saved with current user ID from `get_current_user` dependency
+- [X] T009 [US1] Implement POST `/api/v1/tasks` endpoint in `backend/app/routers/tasks.py`
+- [X] T010 [US1] Ensure task is saved with current user ID from `get_current_user` dependency
 
 ## Phase 4: User Story 2 - View My Tasks (Priority: P1)
 
